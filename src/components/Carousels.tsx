@@ -1,8 +1,9 @@
-import Carousel from 'react-bootstrap/Carousel';
+import React from "react";
+import Carousel from "react-bootstrap/Carousel";
 import foto1 from "../assets/hq720.jpg";
 import foto2 from "../assets/hq720.jpg";
 import foto3 from "../assets/hq720.jpg";
-import '../index.css'; // CSS tambahan
+import "../index.css";
 
 const carouselItems = [
   {
@@ -25,13 +26,13 @@ const carouselItems = [
     title: "Create Memories",
     caption: "Make your journey unforgettable.",
     button: "Get Started",
-  }
+  },
 ];
 
-const Carousels = () => {
+const Carousels: React.FC = () => {
   return (
     <div className="modern-carousel">
-      <Carousel fade interval={4000}>
+      <Carousel fade interval={4000} pause="hover">
         {carouselItems.map((item, index) => (
           <Carousel.Item key={index}>
             <img
@@ -40,9 +41,9 @@ const Carousels = () => {
               alt={item.alt}
             />
             <div className="carousel-overlay" />
-            <Carousel.Caption className="text-start text-white">
-              <h2 className="carousel-title">{item.title}</h2>
-              <p className="carousel-caption">{item.caption}</p>
+            <Carousel.Caption className="carousel-caption-container">
+              <h2 className="carousel-title animate-fade-in-left">{item.title}</h2>
+              <p className="carousel-caption animate-fade-in-right">{item.caption}</p>
               <button className="carousel-button">{item.button}</button>
             </Carousel.Caption>
           </Carousel.Item>

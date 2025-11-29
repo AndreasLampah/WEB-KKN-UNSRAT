@@ -1,4 +1,4 @@
-import Navbar from "../components/Navbar"
+import NavbarTop from "../components/NavbarTop"
 import Carousels from "../components/Carousels"
 import AboutKkn from "../components/AboutKkn"
 import Kegiatan from "../components/Kegiatan"
@@ -9,7 +9,7 @@ import ContactSection from "../components/ContactSection"
 const Home = () => {
     return (
         <div>
-        <Navbar />
+        <NavbarTop />
         <Carousels />
         <AboutKkn />
         <Kegiatan />
