@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
-import foto1 from "../assets/hq720.jpg";
+import foto1 from "../assets/KKN UNSRAT.jpeg";
 import foto2 from "../assets/hq720.jpg";
 import foto3 from "../assets/hq720.jpg";
 import "../index.css";

@@ -1,6 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import type {FormEvent} from "react"
 
 const ContactSection: React.FC = () => {
+
+  const [nama, setNama] = useState<string>("")
+  const [pesan, setPesan] = useState<string>("")
+   
+  const sendToWhatsapp = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    const phoneNumber = "6281214585010"
+
+    const text = `Halo, saya ingin mengirim pesan:
+
+Nama: ${nama}
+Pesan: ${pesan}
+    `.trim()
+
+      const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`
+
+      window.open(url,"_blank")
+  }
+
+
   return (
     <section id="contact" className="py-5 bg-white">
       <div className="container">
@@ -37,20 +59,17 @@ const ContactSection: React.FC = () => {
             <div className="p-4 rounded shadow-sm bg-light">
               <h4 className="fw-bold mb-3">Kirim Pesan</h4>
 
-              <form>
+              <form onSubmit={sendToWhatsapp}>
                 <div className="mb-3">
                   <label className="form-label">Nama Lengkap</label>
-                  <input type="text" className="form-control" placeholder="Masukkan nama" />
+                  <input type="text" className="form-control" placeholder="Masukkan nama" value={nama} onChange={(e => setNama(e.target.value))} required/>
+                  
                 </div>
 
-                <div className="mb-3">
-                  <label className="form-label">Email</label>
-                  <input type="email" className="form-control" placeholder="nama@email.com" />
-                </div>
-
+                
                 <div className="mb-3">
                   <label className="form-label">Pesan</label>
-                  <textarea className="form-control" rows={4} placeholder="Tulis pesan Anda"></textarea>
+                  <textarea className="form-control" rows={4} placeholder="Tulis pesan Anda" value={pesan} onChange={(e) => setPesan(e.target.value)}></textarea>
                 </div>
 
                 <button type="submit" className="btn btn-primary w-100">

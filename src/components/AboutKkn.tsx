@@ -28,14 +28,14 @@ const AboutKkn = () => {
     <section className="about-section py-5 bg-light">
       <Container>
         <Row className="align-items-center mb-5">
-          <Col md={6} className="fade-in-left">
+          <Col md={6} className="fade-in-top">
             <img
               src={FotoKkn}
               alt="Tentang KKN"
               className="img-fluid rounded shadow about-image"
             />
           </Col>
-          <Col md={6} className="fade-in-right">
+          <Col md={6} className="fade-in-top">
             <h2 className="mb-3">Tentang KKN</h2>
             <p className="lead">
               Kuliah Kerja Nyata (KKN) adalah program pengabdian mahasiswa
@@ -47,7 +47,7 @@ const AboutKkn = () => {
 
         <Row className="g-4">
           {aboutFeatures.map((feature, index) => (
-            <Col md={4} key={index} className="fade-in-up">
+            <Col md={4} key={index} className="fade-in-top">
               <Card className="h-100 text-center border-0 shadow-sm feature-card">
                 <div className="display-4 mb-3">{feature.icon}</div>
                 <Card.Body>

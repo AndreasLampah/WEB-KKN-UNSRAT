@@ -1,3 +1,4 @@
+/* NAVBAR ////////////////////////////////////////////////////////////// */
 /* Navbar default: glassmorphism */
 .custom-navbar {
   background: #5f97ff;
@@ -55,7 +56,7 @@
 
 
 
-/* ////////////////////////////////////////////////////////// */
+/* CAROUSEL ////////////////////////////////////////////////////////// */
 /* Container */
 .modern-carousel {
   position: relative;
@@ -161,65 +162,44 @@
 
 
 
-/* ///////////////////////////////////////////////////// */
-/* Animasi fade-in */
-.fade-in-left {
-  opacity: 0;
-  transform: translateX(-30px);
-  animation: fadeInLeft 1s forwards;
-  animation-delay: 0.2s;
-}
-
-.fade-in-right {
-  opacity: 0;
-  transform: translateX(30px);
-  animation: fadeInRight 1s forwards;
-  animation-delay: 0.4s;
-}
-
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s forwards;
-  animation-delay: 0.6s;
-}
-
-@keyframes fadeInLeft {
-  to {
-    opacity: 1;
-    transform: translateX(0);
+/* ABOUTKKN ///////////////////////////////////////////////////// */
+/* Animasi untuk efek dari atas ke bawah */
+@keyframes fadeInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
   }
-}
-
-@keyframes fadeInRight {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInUp {
-  to {
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Hover effect pada card */
+/* Tambahkan animasi pada elemen yang membutuhkan efek dari atas ke bawah */
+.fade-in-top {
+  animation: fadeInFromTop 0.8s ease-out;
+}
+
+/* Card desain modern */
 .feature-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Hover zoom pada gambar */
+/* Gaya untuk gambar */
 .about-image {
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease-in-out;
 }
 
 .about-image:hover {
   transform: scale(1.05);
+}
+
+.about-section {
+  background-color: #f7f7f7;
+  padding: 60px 0;
 }
