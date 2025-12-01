@@ -24,9 +24,9 @@ Pesan: ${pesan}
 
 
   return (
-    <section id="contact" className="py-5 bg-white">
+    <section id="contact" className="py-5 bg-white" >
       <div className="container">
-        <h2 className="text-center fw-bold mb-4">Hubungi Kami</h2>
+        <h2 className="text-center fw-bold mb-4" style={{marginTop:"-100px"}}>Hubungi Kami</h2>
         <p className="text-center mb-5 text-muted">
           Silakan hubungi kami untuk pertanyaan, saran, atau kolaborasi kegiatan KKN.
         </p>

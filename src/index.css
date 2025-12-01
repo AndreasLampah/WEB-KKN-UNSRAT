@@ -58,116 +58,143 @@
 
 /* CAROUSEL ////////////////////////////////////////////////////////// */
 /* Container */
+/* Carousel.css */
+
+/* Wrapper */
 .modern-carousel {
   position: relative;
+  overflow: hidden;
 }
 
-/* Image */
+/* Image Zoom Effect */
 .carousel-image {
-  height: 80vh;
+  height: 90vh;
   object-fit: cover;
-  filter: brightness(0.7);
-  transition: transform 0.5s ease;
+  filter: brightness(70%);
+  animation: zoomIn 8s ease-in-out infinite alternate;
 }
 
-.carousel-image:hover {
-  transform: scale(1.05);
-}
-
-/* Overlay untuk teks */
+/* Overlay gradient */
 .carousel-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
-  z-index: 1;
-}
-
-/* Caption container */
-.carousel-caption-container {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.6)
+  );
   z-index: 2;
-  text-align: left;
-  left: 10%;
-  right: 10%;
 }
 
-/* Title & Caption Animasi */
-@keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+/* Text container */
+.carousel-caption-container {
+  z-index: 3;
+  bottom: 25%;
 }
 
-@keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
+/* Title text animation */
 .animate-fade-in-left {
-  animation: fadeInLeft 1s ease forwards;
+  opacity: 0;
+  animation: fadeLeft 1s forwards ease-out;
 }
 
 .animate-fade-in-right {
-  animation: fadeInRight 1s ease forwards;
+  opacity: 0;
+  animation: fadeRight 1.2s forwards ease-out;
 }
 
-/* Title */
-.carousel-title {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #fff;
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
-}
-
-/* Caption */
-.carousel-caption {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
-  color: #fff;
-  text-shadow: 1px 1px 8px rgba(0,0,0,0.5);
-}
-
-/* Button */
+/* Button modern style */
 .carousel-button {
-  padding: 0.6rem 1.8rem;
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: 50px;
-  border: none;
-  background: linear-gradient(135deg, #0d6efd, #4dabff);
-  color: #fff;
-  transition: 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  margin-top: 10px;
+  padding: 12px 32px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  border-radius: 30px;
+  transition: 0.3s;
 }
 
 .carousel-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* ANIMATIONS */
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-caption-container {
+    bottom: 15%;
+  }
+  .carousel-title {
+    font-size: 1.7rem;
+  }
+  .carousel-caption {
+    font-size: 1rem;
+  }
+  .carousel-image {
+    height: 70vh;
+  }
 }
 
 
 
 /* ABOUTKKN ///////////////////////////////////////////////////// */
 /* Animasi untuk efek dari atas ke bawah */
-@keyframes fadeInFromTop {
+/* AboutKkn.css */
+
+/* AboutKkn.css */
+
+/* Section background */
+#about {
+  scroll-margin-top: 70px;
+}
+
+.about-section {
+  background: #f9fbfd;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* Animasi fade + slide dari atas */
+@keyframes fadeSlideDown {
   0% {
     opacity: 0;
-    transform: translateY(-30px);
+    transform: translateY(-20px);
   }
   100% {
     opacity: 1;
@@ -175,31 +202,111 @@
   }
 }
 
-/* Tambahkan animasi pada elemen yang membutuhkan efek dari atas ke bawah */
 .fade-in-top {
-  animation: fadeInFromTop 0.8s ease-out;
+  opacity: 0;
+  animation-name: fadeSlideDown;
+  animation-duration: 700ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
 }
 
-/* Card desain modern */
+/* Card modern */
 .feature-card {
+  background: #ffffff;
+  border: 1px solid #e3e8ee;
+  border-radius: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
 }
 
+/* Hover effect card */
 .feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
-/* Gaya untuk gambar */
+/* Image styling */
 .about-image {
-  transition: transform 0.5s ease-in-out;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.about-image:hover {
-  transform: scale(1.05);
+/* Icon styling */
+.feature-card .display-4 {
+  font-size: 3rem;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.about-section {
-  background-color: #f7f7f7;
-  padding: 60px 0;
+.feature-card:hover .display-4 {
+  transform: scale(1.2);
+  color: #0d6efd; /* Bootstrap primary color */
+}
+
+
+
+
+/* KEGIATAN ///////////////////////////////////////////////////////////////////// */
+
+#program {
+  scroll-margin-top: 70px;
+}
+
+/* Kegiatan.css */
+
+/* Section background */
+.modern-section {
+  background: #f9fbfd;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* Card modern */
+.modern-card {
+  background: #ffffff;
+  border: 1px solid #e3e8ee;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  border-radius: 1rem;
+}
+
+/* Hover effect card */
+.modern-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+/* Icon color transition */
+.icon-wrapper i {
+  transition: color 0.3s ease;
+}
+
+.modern-card:hover .icon-wrapper i {
+  color: #0d6efd; /* Bootstrap primary color */
+}
+
+/* Animasi fade + slide up */
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-slide-up {
+  opacity: 0;
+  animation-name: fadeSlideUp;
+  animation-duration: 700ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+
+/* About ///////////////////////////////////////////////////////////////////////// */
+#about {
+  scroll-margin-top: 55px;
 }

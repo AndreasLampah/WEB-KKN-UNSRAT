@@ -31,25 +31,33 @@ const carouselItems = [
 
 const Carousels: React.FC = () => {
   return (
-    <div className="modern-carousel">
-      <Carousel fade interval={4000} pause="hover">
-        {carouselItems.map((item, index) => (
-          <Carousel.Item key={index}>
-            <img
-              className="d-block w-100 carousel-image"
-              src={item.src}
-              alt={item.alt}
-            />
-            <div className="carousel-overlay" />
-            <Carousel.Caption className="carousel-caption-container">
-              <h2 className="carousel-title animate-fade-in-left">{item.title}</h2>
-              <p className="carousel-caption animate-fade-in-right">{item.caption}</p>
-              <button className="carousel-button">{item.button}</button>
-            </Carousel.Caption>
-          </Carousel.Item>
-        ))}
-      </Carousel>
-    </div>
+    <section id="home">
+      <div className="modern-carousel">
+        <Carousel fade interval={4000} pause="hover">
+          {carouselItems.map((item, index) => (
+            <Carousel.Item key={index}>
+              <img
+                className="d-block w-100 carousel-image"
+                src={item.src}
+                alt={item.alt}
+              />
+
+              <div className="carousel-overlay" />
+
+              <Carousel.Caption className="carousel-caption-container">
+                <h2 className="carousel-title animate-fade-in-left">
+                  {item.title}
+                </h2>
+
+                <p className="carousel-caption animate-fade-in-right">
+                  {item.caption}
+                </p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      </div>
+    </section>
   );
 };
 

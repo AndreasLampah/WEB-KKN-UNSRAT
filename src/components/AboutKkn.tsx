@@ -1,6 +1,7 @@
+import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import FotoKkn from "../assets/foto-kkn.jpg"; 
-import "../index.css"; // file CSS animasi
+import FotoKkn from "../assets/foto-kkn.jpg";
+import "../index.css";
 
 const aboutFeatures = [
   {
@@ -23,42 +24,49 @@ const aboutFeatures = [
   },
 ];
 
-const AboutKkn = () => {
+const AboutKkn: React.FC = () => {
   return (
-    <section className="about-section py-5 bg-light">
-      <Container>
-        <Row className="align-items-center mb-5">
-          <Col md={6} className="fade-in-top">
-            <img
-              src={FotoKkn}
-              alt="Tentang KKN"
-              className="img-fluid rounded shadow about-image"
-            />
-          </Col>
-          <Col md={6} className="fade-in-top">
-            <h2 className="mb-3">Tentang KKN</h2>
-            <p className="lead">
-              Kuliah Kerja Nyata (KKN) adalah program pengabdian mahasiswa
-              kepada masyarakat yang bertujuan mengembangkan keterampilan,
-              pengalaman sosial, dan kepedulian terhadap lingkungan sekitar.
-            </p>
-          </Col>
-        </Row>
-
-        <Row className="g-4">
-          {aboutFeatures.map((feature, index) => (
-            <Col md={4} key={index} className="fade-in-top">
-              <Card className="h-100 text-center border-0 shadow-sm feature-card">
-                <div className="display-4 mb-3">{feature.icon}</div>
-                <Card.Body>
-                  <Card.Title>{feature.title}</Card.Title>
-                  <Card.Text>{feature.description}</Card.Text>
-                </Card.Body>
-              </Card>
+    <section id="about">
+      <div className="about-section">
+        <Container>
+          <Row className="align-items-center mb-5">
+            <Col md={6} className="fade-in-top">
+              <img
+                src={FotoKkn}
+                alt="Tentang KKN"
+                className="img-fluid about-image"
+              />
             </Col>
-          ))}
-        </Row>
-      </Container>
+            <Col md={6} className="fade-in-top">
+              <h2 className="mb-3">Tentang KKN</h2>
+              <p className="lead">
+                Kuliah Kerja Nyata (KKN) adalah program pengabdian mahasiswa
+                kepada masyarakat yang bertujuan mengembangkan keterampilan,
+                pengalaman sosial, dan kepedulian terhadap lingkungan sekitar.
+              </p>
+            </Col>
+          </Row>
+
+          <Row className="g-4">
+            {aboutFeatures.map((feature, index) => (
+              <Col
+                md={4}
+                key={index}
+                className="fade-in-top"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                <Card className="h-100 text-center border-0 shadow-sm feature-card">
+                  <div className="display-4 mb-3">{feature.icon}</div>
+                  <Card.Body>
+                    <Card.Title>{feature.title}</Card.Title>
+                    <Card.Text>{feature.description}</Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </div>
     </section>
   );
 };

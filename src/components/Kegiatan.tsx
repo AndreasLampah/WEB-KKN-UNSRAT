@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import AOS from "aos";
+import React from "react";
+import "../index.css"; // import CSS eksternal
 
 interface ProgramItem {
   title: string;
@@ -35,15 +35,11 @@ const programList: ProgramItem[] = [
 ];
 
 const Kegiatan: React.FC = () => {
-  useEffect(() => {
-    AOS.init({ duration: 900, once: true });
-  }, []);
-
   return (
-    <section id="program" className="py-5 modern-section">
-      <div className="container">
+    <section id="program" className="modern-section">
+      <div className="container py-5">
         <h2 className="text-center mb-4 fw-bold">Program Kegiatan KKN</h2>
-        <p className="text-center mb-5 text-muted">
+        <p className="text-center mb-5 text-muted fs-5">
           Berikut adalah beberapa program utama yang dilaksanakan selama kegiatan KKN.
         </p>
 
@@ -51,17 +47,16 @@ const Kegiatan: React.FC = () => {
           {programList.map((program, index) => (
             <div
               key={index}
-              className="col-md-6 col-lg-3"
-              data-aos="fade-up"
-              data-aos-delay={index * 150}
+              className="col-md-6 col-lg-3 fade-slide-up"
+              style={{ animationDelay: `${index * 150}ms` }}
             >
-              <div className="modern-card shadow-sm p-4 text-center h-100">
-                <div className="icon-wrapper mb-3">
-                  <i className={`${program.icon} fs-1`}></i>
+              <div className="modern-card shadow p-4 text-center h-100">
+                <div className="icon-wrapper mb-3 text-primary">
+                  <i className={`${program.icon} fs-2`}></i>
                 </div>
 
-                <h5 className="fw-bold">{program.title}</h5>
-                <p className="text-muted">{program.description}</p>
+                <h5 className="fw-semibold mb-3">{program.title}</h5>
+                <p className="text-secondary">{program.description}</p>
               </div>
             </div>
           ))}
